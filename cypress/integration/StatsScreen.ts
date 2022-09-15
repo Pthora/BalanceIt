@@ -9,10 +9,10 @@ describe('StatsScreen', () => {
     cy.contains('Current Streak')
     cy.contains('0 days')
 
-    cy.contains('Total Sessions')
+    cy.contains('Days Left')
     cy.contains('0 sessions')
 
-    cy.contains('Time Meditating')
+    cy.contains('Task Time')
     cy.contains('0 minutes')
   })
 })

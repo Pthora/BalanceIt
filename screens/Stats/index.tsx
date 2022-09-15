@@ -39,7 +39,7 @@ export default function StatsScreen() {
           <Card style={styles.card}>
             <Card.Content style={styles.cardContent}>
               <Icon name="calendar" style={styles.icon} size={30} color={primary} />
-              <Paragraph>Total Sessions</Paragraph>
+              <Paragraph>Days Left</Paragraph>
               <Title>
                 {totalSessions} session{totalSessions === 1 ? '' : 's'}
               </Title>
@@ -48,7 +48,7 @@ export default function StatsScreen() {
           <Card style={styles.card}>
             <Card.Content style={styles.cardContent}>
               <Icon name="clockcircleo" style={styles.icon} size={30} color={primary} />
-              <Paragraph>Time Meditating</Paragraph>
+              <Paragraph>Task Time</Paragraph>
               <Title>{listenedStat}</Title>
             </Card.Content>
           </Card>

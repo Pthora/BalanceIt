@@ -29,6 +29,11 @@ export type HomeParamList = {
   LoginScreen: NO_PARAMS
 }
 
+export type AudioParamList = {
+  AudioScreen: NO_PARAMS
+
+}
+
 export type StatsParamList = {
   StatsScreen: NO_PARAMS
 }

@@ -27,7 +27,7 @@ import {
 } from 'react-social-login-buttons'
 import { HomeParamList } from '../../types'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { Button } from 'react-native'
+import { Button, Text } from 'react-native'
 
 interface Props {
   navigation: StackNavigationProp<HomeParamList, 'LoginScreen'>
@@ -57,9 +57,17 @@ function Login({ navigation }: Props) {
 
   return (
     <>
-      {provider && profile && <User provider={provider} profile={profile} onLogout={onLogout} />}
+      {provider != null ? ( profile !=null ? (<User provider={provider} profile={profile} onLogout={onLogout} />):null) :null}
       <div className={`App ${provider && profile ? 'hide' : ''}`}>
-        <h1 className="title">ReactJS Social Login</h1>
+        <Text>ReactJS Social Login</Text>
+
+        <Button
+          onPress={onPressLearnMore}
+          title="Login"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+
         <LoginSocialFacebook
           appId={process.env.REACT_APP_FB_APP_ID || ''}
           fieldsProfile={
@@ -97,53 +105,7 @@ function Login({ navigation }: Props) {
           <GoogleLoginButton />
         </LoginSocialGoogle>
 
-        <LoginSocialApple
-          client_id={process.env.REACT_APP_APPLE_ID || ''}
-          scope={'name email'}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err) => {
-            console.log(err)
-          }}
-        >
-          <AppleLoginButton />
-        </LoginSocialApple>
 
-        <LoginSocialAmazon
-          client_id={process.env.REACT_APP_AMAZON_APP_ID || ''}
-          redirect_uri={REDIRECT_URI}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-          onLoginStart={onLoginStart}
-        >
-          <AmazonLoginButton />
-        </LoginSocialAmazon>
-
-        <LoginSocialInstagram
-          client_id={process.env.REACT_APP_INSTAGRAM_APP_ID || ''}
-          client_secret={process.env.REACT_APP_INSTAGRAM_APP_SECRET || ''}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onLogoutSuccess={onLogoutSuccess}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-        >
-          <InstagramLoginButton />
-        </LoginSocialInstagram>
 
         <LoginSocialMicrosoft
           client_id={process.env.REACT_APP_MICROSOFT_APP_ID || ''}
@@ -160,75 +122,6 @@ function Login({ navigation }: Props) {
           <MicrosoftLoginButton />
         </LoginSocialMicrosoft>
 
-        <LoginSocialLinkedin
-          client_id={process.env.REACT_APP_LINKEDIN_APP_ID || ''}
-          client_secret={process.env.REACT_APP_LINKEDIN_APP_SECRET || ''}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-        >
-          <LinkedInLoginButton />
-        </LoginSocialLinkedin>
-
-        <LoginSocialGithub
-          client_id={process.env.REACT_APP_GITHUB_APP_ID || ''}
-          client_secret={process.env.REACT_APP_GITHUB_APP_SECRET || ''}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onLogoutSuccess={onLogoutSuccess}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-        >
-          <GithubLoginButton />
-        </LoginSocialGithub>
-        <LoginSocialPinterest
-          client_id={process.env.REACT_APP_PINTEREST_APP_ID || ''}
-          client_secret={process.env.REACT_APP_PINTEREST_APP_SECRET || ''}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-          className="pinterest-btn"
-        />
-
-        <LoginSocialTwitter
-          client_id={process.env.REACT_APP_TWITTER_V2_APP_KEY || ''}
-          // client_secret={process.env.REACT_APP_TWITTER_V2_APP_SECRET || ''}
-          redirect_uri={REDIRECT_URI}
-          onLoginStart={onLoginStart}
-          onLogoutSuccess={onLogoutSuccess}
-          onResolve={({ provider, data }: IResolveParams) => {
-            setProvider(provider)
-            setProfile(data)
-          }}
-          onReject={(err: any) => {
-            console.log(err)
-          }}
-        >
-          <TwitterLoginButton />
-        </LoginSocialTwitter>
-        <Button
-          onPress={onPressLearnMore}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
       </div>
     </>
   )
