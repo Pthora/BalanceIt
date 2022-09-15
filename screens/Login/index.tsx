@@ -25,17 +25,27 @@ import {
   TwitterLoginButton,
   AppleLoginButton,
 } from 'react-social-login-buttons'
+import { HomeParamList } from '../../types'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { Button } from 'react-native'
 
+interface Props {
+  navigation: StackNavigationProp<HomeParamList, 'LoginScreen'>
+}
 const REDIRECT_URI = 'https://plenty-planets-beam-42-118-51-2.loca.lt/account/login'
 // const REDIRECT_URI = 'http://localhost:3000/account/login'
 
-const App = () => {
+function Login({ navigation }: Props) {
   const [provider, setProvider] = useState('')
   const [profile, setProfile] = useState<any>()
 
   const onLoginStart = useCallback(() => {
     // alert('login start');
   }, [])
+
+  const onPressLearnMore = () => {
+    navigation.navigate('HomeScreen')
+  }
 
   const onLogoutSuccess = useCallback(() => {
     setProfile(null)
@@ -213,9 +223,15 @@ const App = () => {
         >
           <TwitterLoginButton />
         </LoginSocialTwitter>
+        <Button
+          onPress={onPressLearnMore}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </div>
     </>
   )
 }
 
-export default App
+export default Login

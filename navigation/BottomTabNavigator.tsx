@@ -7,6 +7,7 @@ import { StyleSheet } from 'react-native'
 import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import HomeScreen from '../screens/Home'
+import LoginScreen from '../screens/Login'
 import PlayScreen from '../screens/Play'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
@@ -20,6 +21,17 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
+      initialRouteName="Login"
+      screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, headerShown: false }}
+    >
+      <BottomTab.Screen
+        name="Login"
+        component={TabOneNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
+      {/* <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, headerShown: false }}
     >
@@ -29,7 +41,7 @@ export default function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
-      />
+      /> */}
       <BottomTab.Screen
         name="Stats"
         component={StatsNavigator}
@@ -68,6 +80,13 @@ function TabOneNavigator() {
           headerTintColor: Colors.light.white,
         }}
       >
+        <HomeStack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            headerTitle: 'Home',
+          }}
+        />
         <HomeStack.Screen
           name="HomeScreen"
           component={HomeScreen}

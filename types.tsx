@@ -18,6 +18,7 @@ export type BottomTabParamList = {
   Home: NO_PARAMS
   Stats: NO_PARAMS
   Settings: NO_PARAMS
+  Login: NO_PARAMS
 }
 
 export type HomeParamList = {
@@ -25,6 +26,7 @@ export type HomeParamList = {
   PlayScreen: {
     id: string
   }
+  LoginScreen: NO_PARAMS
 }
 
 export type StatsParamList = {
