@@ -160,7 +160,8 @@ function Login({ navigation }: Props) {
             <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Wrong Password!</Text>
-            <Pressable style={[styles.button, styles.buttonOpen]} onPress={() => setModalVisible(false)}>
+            <Pressable style={[styles.button, styles.buttonOpen]} onPress={() => {setModalVisible(false); setPassword("")
+            setUsername("")}}>
             <Text style={styles.textStyle}>Close</Text>
       </Pressable>
           </View>

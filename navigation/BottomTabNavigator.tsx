@@ -17,6 +17,8 @@ import AboutPage from '../screens/Settings/About'
 import { AudioParamList, BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
 import AudioList from '../screens/AudioList'
 import Feedback from '../screens/Feedback'
+import PlayerControls from '../screens/Play/PlayerControls'
+import { stringify } from 'uuid'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -121,6 +123,7 @@ function TabOneNavigator() {
             headerTitle: 'FeedbackScreen',
           }}
         />
+         
       </HomeStack.Group>
     </HomeStack.Navigator>
   )

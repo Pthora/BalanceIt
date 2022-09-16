@@ -3,6 +3,8 @@
  * https://reactnavigation.org/docs/typescript/
  */
 
+import { StackNavigationProp } from "@react-navigation/stack"
+
 export type NO_PARAMS = undefined
 export type RootStackParamList = {
   Root: NO_PARAMS
@@ -33,11 +35,12 @@ export type HomeParamList = {
     id: string
   },
   PlayerControl: {
-    id: string
+    id: string,
+    navigation:StackNavigationProp<HomeParamList, 'AudioScreen'>
   },
   FeedbackScreen: {
     id: string
-  }
+  },
   LoginScreen: NO_PARAMS
 }
 

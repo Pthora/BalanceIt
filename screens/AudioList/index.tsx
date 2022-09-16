@@ -29,7 +29,7 @@ export default function Home({ navigation }: Props) {
         style={styles.card}
         onPress={() =>
           navigation.navigate('PlayScreen', {
-            id: item.id,
+            id: item.id
           })
         }
       >
@@ -54,7 +54,7 @@ export default function Home({ navigation }: Props) {
         style={styles.card}
         onPress={() =>
           navigation.navigate('PlayScreen', {
-            id: item.id,
+            id: item.id
           })
         }
       >
