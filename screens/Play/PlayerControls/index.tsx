@@ -3,16 +3,21 @@ import { StyleSheet } from 'react-native'
 
 import PlayerIcon from '../PlayerIcon'
 import { View, Text } from '../../../components/Themed'
+import { Button } from 'react-native-paper'
+import { StackNavigationProp } from '@react-navigation/stack'
+import { HomeParamList } from '../../../types'
 
 interface Props {
   positionTime: string
   durationTime: string
   isPlaying: boolean
+  navigation: StackNavigationProp<HomeParamList, 'PlayerControl'>
   pause: () => void
   play: () => void
   replay: () => void
   forward: () => void
 }
+
 export default function PlayerControls({
   positionTime,
   durationTime,
@@ -21,6 +26,7 @@ export default function PlayerControls({
   play,
   replay,
   forward,
+  navigation
 }: Props) {
   return (
     <View style={styles.controls}>
@@ -33,6 +39,9 @@ export default function PlayerControls({
       )}
       <PlayerIcon name="forward-10" onPress={forward} size={30} />
       <Text>{durationTime}</Text>
+    <Button onPress={() => navigation.navigate('FeedbackScreen', {id: '2'})} >
+        Next
+      </Button>
     </View>
   )
 }

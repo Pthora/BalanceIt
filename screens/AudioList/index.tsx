@@ -9,15 +9,15 @@ import DownloadButton from '../../components/DownloadButton'
 import { Text, useThemeColor } from '../../components/Themed'
 import Colors from '../../constants/Colors'
 import { meditations, MeditationItem } from '../../data/meditations'
-import { AudioParamList } from '../../types'
+import { HomeParamList } from '../../types'
 import { useAppSelector } from '../../hooks'
 import { selectFavourites } from '../../redux/selectors'
 
 interface Props {
-  navigation: StackNavigationProp<AudioParamList, 'AudioScreen'>
+  navigation: StackNavigationProp<HomeParamList, 'AudioScreen'>
 }
 
-export default function AudioList({ navigation }: Props) {
+export default function Home({ navigation }: Props) {
   const textColor = useThemeColor({}, 'text')
 
   const favourites = useAppSelector(selectFavourites)
@@ -28,9 +28,9 @@ export default function AudioList({ navigation }: Props) {
         elevation={1}
         style={styles.card}
         onPress={() =>
-          navigation.navigate('AudioScreen'
-           
-          )
+          navigation.navigate('PlayScreen', {
+            id: item.id,
+          })
         }
       >
         <Card.Cover style={[styles.cardImage, styles.popularImage]} source={item.image} />
@@ -53,7 +53,9 @@ export default function AudioList({ navigation }: Props) {
       <Card
         style={styles.card}
         onPress={() =>
-          navigation.navigate('AudioScreen')
+          navigation.navigate('PlayScreen', {
+            id: item.id,
+          })
         }
       >
         <Card.Cover style={styles.cardImage} source={item.image} />
@@ -82,24 +84,7 @@ export default function AudioList({ navigation }: Props) {
         renderItem={renderPopularCard}
         keyExtractor={({ id }) => id}
       />
-      {/* <Text style={styles.title}>ANXIETY</Text>
-      <FlatList
-        style={styles.cards}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={meditations.anxiety}
-        renderItem={renderCard}
-        keyExtractor={({ id }) => id}
-      /> */}
-      {/* <Text style={styles.title}>SLEEP</Text>
-      <FlatList
-        style={styles.cards}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={meditations.sleep}
-        renderItem={renderCard}
-        keyExtractor={({ id }) => id}
-      /> */}
+
       {favourites.length > 0 && (
         <>
           <Text style={styles.title}>FAVOURITE</Text>

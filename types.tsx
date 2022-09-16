@@ -7,6 +7,7 @@ export type NO_PARAMS = undefined
 export type RootStackParamList = {
   Root: NO_PARAMS
   NotFound: NO_PARAMS
+  AudioScreen : NO_PARAMS
 }
 
 export type MainStackParamList = {
@@ -19,18 +20,31 @@ export type BottomTabParamList = {
   Stats: NO_PARAMS
   Settings: NO_PARAMS
   Login: NO_PARAMS
+  AudioList: NO_PARAMS
+  Feedback : NO_PARAMS
 }
 
 export type HomeParamList = {
   HomeScreen: NO_PARAMS
   PlayScreen: {
     id: string
+  },
+  AudioScreen: {
+    id: string
+  },
+  PlayerControl: {
+    id: string
+  },
+  FeedbackScreen: {
+    id: string
   }
   LoginScreen: NO_PARAMS
 }
 
 export type AudioParamList = {
-  AudioScreen: NO_PARAMS
+  AudioScreen: {
+    id: string
+  }
 
 }
 

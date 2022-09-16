@@ -14,6 +14,7 @@ import MainNavigator from './MainNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 import { StatusBar } from 'expo-status-bar'
 import { initializeAnalytics, logEvent } from '../utils/analytics'
+import AudioList from '../screens/AudioList'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   const navigationContainerRef = React.useRef<NavigationContainerRef<any>>(null)
@@ -47,7 +48,10 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
     >
       <StatusBar style="light" />
       <RootNavigator />
+
+
     </NavigationContainer>
+   
   )
 }
 

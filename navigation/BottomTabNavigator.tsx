@@ -9,10 +9,14 @@ import useColorScheme from '../hooks/useColorScheme'
 import HomeScreen from '../screens/Home'
 import LoginScreen from '../screens/Login'
 import PlayScreen from '../screens/Play'
+import FeedbackScreen from '../screens/Feedback'
+import AudioScreen from '../screens/AudioList'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
 import AboutPage from '../screens/Settings/About'
-import { BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import { AudioParamList, BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import AudioList from '../screens/AudioList'
+import Feedback from '../screens/Feedback'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -56,6 +60,7 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
         }}
       />
+      
     </BottomTab.Navigator>
   )
 }
@@ -100,6 +105,20 @@ function TabOneNavigator() {
           options={{
             headerBackTitle: 'Back',
             headerTitle: 'Play',
+          }}
+        />
+        <HomeStack.Screen
+          name="AudioScreen"
+          component={AudioScreen}
+          options={{
+            headerTitle: 'AudioScreen',
+          }}
+        />
+          <HomeStack.Screen
+          name="FeedbackScreen"
+          component={FeedbackScreen}
+          options={{
+            headerTitle: 'FeedbackScreen',
           }}
         />
       </HomeStack.Group>
@@ -152,6 +171,24 @@ function SettingsNavigator() {
         }}
       />
     </SettingsStack.Navigator>
+  )
+}
+
+const AudioStack = createStackNavigator<AudioParamList>()
+
+function AudioNavigator() {
+  return (
+    <AudioStack.Navigator>
+      <AudioStack.Screen
+        name="AudioScreen"
+        component={AudioList}
+        options={{
+          headerTitle: 'Audio',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </AudioStack.Navigator>
   )
 }
 
