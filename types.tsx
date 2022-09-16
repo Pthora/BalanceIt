@@ -24,6 +24,7 @@ export type BottomTabParamList = {
   Login: NO_PARAMS
   AudioList: NO_PARAMS
   Feedback : NO_PARAMS
+  Chat:NO_PARAMS
 }
 
 export type HomeParamList = {
@@ -41,7 +42,8 @@ export type HomeParamList = {
   FeedbackScreen: {
     id: string
   },
-  LoginScreen: NO_PARAMS
+  LoginScreen: NO_PARAMS,
+  ChatBotScreen:NO_PARAMS
 }
 
 export type AudioParamList = {
@@ -55,7 +57,15 @@ export type StatsParamList = {
   StatsScreen: NO_PARAMS
 }
 
+export type ChatParamList = {
+  ChatScreen: NO_PARAMS
+}
+
 export type SettingsParamList = {
   SettingsScreen: NO_PARAMS
   AboutScreen: NO_PARAMS
+}
+
+export type LoginParamList = {
+  LoginScreen: NO_PARAMS
 }

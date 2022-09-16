@@ -13,7 +13,6 @@ import { HomeParamList } from '../../types'
 import { useAppSelector } from '../../hooks'
 import { selectFavourites } from '../../redux/selectors'
 import Collapsible from 'react-collapsible';
-import '../../assets/css/collapseList.css'
 
 
 interface Props {

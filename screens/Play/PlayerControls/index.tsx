@@ -141,7 +141,7 @@ export default function PlayerControls({
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Hide Modal</Text>
+              <Text style={styles.textStyle}>Submit</Text>
 
             </Pressable>
           </View>

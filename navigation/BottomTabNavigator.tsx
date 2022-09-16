@@ -8,17 +8,19 @@ import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
 import HomeScreen from '../screens/Home'
 import LoginScreen from '../screens/Login'
+import ChatScreen from '../components/NewChatbot';
 import PlayScreen from '../screens/Play'
 import FeedbackScreen from '../screens/Feedback'
 import AudioScreen from '../screens/AudioList'
 import SettingsScreen from '../screens/Settings'
 import StatsScreen from '../screens/Stats'
 import AboutPage from '../screens/Settings/About'
-import { AudioParamList, BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList } from '../types'
+import { AudioParamList, BottomTabParamList, HomeParamList, SettingsParamList, StatsParamList,ChatParamList,LoginParamList } from '../types'
 import AudioList from '../screens/AudioList'
 import Feedback from '../screens/Feedback'
 import PlayerControls from '../screens/Play/PlayerControls'
 import { stringify } from 'uuid'
+import NewChatApp from '../components/NewChatbot'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -30,13 +32,7 @@ export default function BottomTabNavigator() {
       initialRouteName="Login"
       screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, headerShown: false }}
     >
-      <BottomTab.Screen
-        name="Login"
-        component={TabOneNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-        }}
-      />
+      
       {/* <BottomTab.Navigator
       initialRouteName="Home"
       screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, headerShown: false }}
@@ -48,6 +44,13 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       /> */}
+   <BottomTab.Screen
+        name="Login"
+        component={TabOneNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="Stats"
         component={StatsNavigator}
@@ -60,6 +63,13 @@ export default function BottomTabNavigator() {
         component={SettingsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="setting" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Chat"
+        component={ChatNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="android" color={color} />,
         }}
       />
       
@@ -91,7 +101,7 @@ function TabOneNavigator() {
           name="LoginScreen"
           component={LoginScreen}
           options={{
-            headerTitle: 'Home',
+            headerTitle: 'Login',
           }}
         />
         <HomeStack.Screen
@@ -147,6 +157,24 @@ function StatsNavigator() {
   )
 }
 
+const ChatStack = createStackNavigator<ChatParamList>()
+
+function ChatNavigator() {
+  return (
+    <ChatStack.Navigator>
+      <ChatStack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{
+          headerTitle: 'Chat',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </ChatStack.Navigator>
+  )
+}
+
 const SettingsStack = createStackNavigator<SettingsParamList>()
 
 function SettingsNavigator() {
@@ -192,6 +220,24 @@ function AudioNavigator() {
         }}
       />
     </AudioStack.Navigator>
+  )
+}
+
+const LoginStack = createStackNavigator<LoginParamList>()
+
+function LoginNavigator() {
+  return (
+    <LoginStack.Navigator>
+      <LoginStack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{
+          headerTitle: 'Login',
+          headerStyle: styles.header,
+          headerTitleStyle: styles.headerTitle,
+        }}
+      />
+    </LoginStack.Navigator>
   )
 }
 

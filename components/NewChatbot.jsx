@@ -4,32 +4,35 @@ import MainNavigator from '../navigation/MainNavigator';
 const steps = [
   {
     id: '0',
-    message: 'Welcome to react chatbot!',
+    message: 'Welcome to BalanceIt!',
     trigger: '1',
   },
   {
     id: '1',
-    options: [
-      { value: 1, label: 'Number 1', trigger: '2' },
-      { value: 2, label: 'Number 2', trigger: '3' },
-      { value: 3, label: 'Number 3', trigger: '4' },
-    ],
+    message: 'How are you feeling today?',
+    trigger: '2'
   },
   {
     id: '2',
-    message: 'Bye!',
-    end: true,
+    user: true,
+    trigger: '3'
   },
   {
     id: '3',
-    message: 'Bye Bye!',
-    end: true,
-  },
+    message: "I am glad you are feeling good!!",
+    trigger: '4'
+  }
+  ,
   {
     id: '4',
-    component: <MainNavigator/>,
+    user: true,
+    trigger: '5'
+  },
+  {
+    id: '5',
+    message: "Bye Bye",
     end: true,
-  }
+  },
 ];
 
 function NewChatApp() {
